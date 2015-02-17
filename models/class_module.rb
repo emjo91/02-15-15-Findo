@@ -5,6 +5,8 @@
 #
 # Public Methods:
 # #termainate 
+# #insert - will make
+# #save - will make
 
 module ClassModule
     
