@@ -18,6 +18,8 @@ module ClassModule
   #             
   # Returns:
   # Nil
+  #
+  # This method DOES work.
   def terminate(table)
     DATABASE.execute("DROP TABLE #{table}")
   end

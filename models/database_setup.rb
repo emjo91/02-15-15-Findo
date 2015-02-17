@@ -3,7 +3,7 @@ require 'sqlite3'
 DATABASE = SQLite3::Database.new("findo_database.db")
 
 DATABASE.execute("CREATE TABLE IF NOT EXISTS dogs(id INTEGER PRIMARY KEY, name TEXT NOT NULL, 
-                  breed TEXT NOT NULL, serial_num INTEGER UNIQUE, description TEXT, colour TEXT, 
+                  breed TEXT NOT NULL, age INTEGER, serial_num INTEGER UNIQUE, description TEXT, colour TEXT, 
                   owner_id INTEGER, temperament_id INTEGER, FOREIGN KEY (owner_id) REFERENCES owners(id), 
                   FOREIGN KEY (temperament_id) REFERENCES temperaments(id))")
                   

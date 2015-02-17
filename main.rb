@@ -31,16 +31,35 @@ get "/new_user" do
   erb :new_user, :layout => :boilerplate
 end
 
+get "/new_user_confirmed" do
+  @title = "Sign Up"
+  @header = "Confirmation"
+  
+  @name = params["name"]
+  @secondary_owner = params["secondary_owner"]
+  @phone_num = params["phone_num"]
+  @email = params["email"]
+  @address = params["address"]
+  @city = params["city"]
+  @state = params["state"]
+  @zip = params["zip"]
+  @o = Owner.new(params)
+  @o.insert
+  erb :new_user_confirmed, :layout => :boilerplate
+end
+
+
+# New Dog Set Up
 get "/new_user_dog" do
   @title = "Sign Up"
   @header = "SIGN UP"
   erb :new_user_dog, :layout => :boilerplate
 end
 
-get "/new_user_confirmed" do
+get "/new_info_confirmed" do
   @title = "Confirmed"
   @header = "FINDO"
-  erb :new_user_confirmed, :layout => :boilerplate
+  erb :new_info_confirmed, :layout => :boilerplate
 end
 
 # Edit User/Pull User Info

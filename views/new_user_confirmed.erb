@@ -1,3 +1,45 @@
 <h1><%= @header %></h1>
 
-<center><h3>You're now added into FINDO!</h3></center>
+<h3>Does this look correct to you?</h3>
+
+<!-- Example of how this may look...rather than redoing values. -->
+<p>Name: <%= @o.name %></p>
+
+<p>Your information has been stored!</p>
+
+<nav>
+  <a href="#">Add a pet</a> -
+  <a href="#">Edit User</a>
+</nav>
+
+
+<!-- May not use this to pass along values...thinking about it. -->
+<!-- <form action="/new_user_dog">
+  <p>Owner Name (first and last):</p>
+  <input type="hidden" type="text" name="name">
+
+  <p>Secondary Owner Name:</p>
+  <input type="hidden" type="text" name="secondary_owner">
+
+  <p>Phone Number <br> (ex 4025551234):</p>
+  <input type="hidden" type="text" name="phone_num">
+
+  <p>Email Adress <br> (ex findo@gmail.com):</p>
+  <input type="hidden" type="text" name="email">
+
+  <p>Address:</p>
+  <input type="hidden" type="text" name="address">
+
+  <p>City:</p>
+  <input type="hidden" type="text" name="city">
+
+  <p>State:</p>
+  <input type="hidden" type="text" name="state">
+
+  <p>Zip Code:</p>
+  <input type="hidden" type="text" name="zip">
+
+  <br><br>
+  <input type="submit" value="Submit">
+
+</form> -->

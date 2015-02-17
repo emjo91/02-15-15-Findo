@@ -34,4 +34,24 @@ class Dog
     @owner_id = options["owner_id"]
   end
   
+  
+  # Public: #insert
+  # Allows a person to insert an object into the "dogs" table.
+  #
+  # Parameters:
+  # No Parameters               
+  #
+  # Returns:
+  # id
+  #
+  # State changes:
+  # NA?
+  #
+  # This method IS working.
+  def insert
+    DATABASE.execute("INSERT INTO dogs (name, breed, age, serial_num, colour, description, temperament_id, owner_id) VALUES 
+                    ('#{@name}', '#{@breed}', #{@age}, #{@serial_num}, '#{@colour}', '#{@description}', #{@temperament_id}, #{@owner_id})")
+    @id = DATABASE.last_insert_row_id
+  end
+  
 end
