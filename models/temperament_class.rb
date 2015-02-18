@@ -1,3 +1,5 @@
+require_relative 'class_module.rb'
+
 # Class: Temperament
 #
 # Description to be added here.
@@ -7,8 +9,11 @@
 # @temperament  - String
 #
 # Public Methods:
-# 
+# insert
+# self.show_all_temperaments
+#
 class Temperament
+  extend ClassModule
   
   attr_reader :id
   attr_accessor :temperament
@@ -38,7 +43,7 @@ class Temperament
   end  
 
 
-  # TODO
+  # TODO - Need to fix hashes.
   # Public: #show_all_temperaments
   # Shows a person all the temperaments listed. This will go into a drop down menu for selection of temperaments.
   #
@@ -46,13 +51,12 @@ class Temperament
   # No Parameters               
   #
   # Returns:
-  # id
+  # an array of hashes of all temperaments.
   #
   # State changes:
   # NA?
   #
   # This method IS working.
-  # Need to fix hashes.
   def self.show_all_temperaments
     DATABASE.execute("SELECT temperament FROM temperaments")
   end

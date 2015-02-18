@@ -14,7 +14,8 @@ require_relative 'class_module.rb'
 # @description - Integer: Unique identifier for particular product
 #
 # Public Methods:
-# None yet. 
+# insert
+# self.show_all_breeds
 #
 class Dog
   extend ClassModule
@@ -52,6 +53,49 @@ class Dog
     DATABASE.execute("INSERT INTO dogs (name, breed, age, serial_num, colour, description, temperament_id, owner_id) VALUES 
                     ('#{@name}', '#{@breed}', #{@age}, #{@serial_num}, '#{@colour}', '#{@description}', #{@temperament_id}, #{@owner_id})")
     @id = DATABASE.last_insert_row_id
+  end
+  
+  
+  # Public: #find_by_serial_num
+  # Pulls a record from a table by it's serial number.
+  #
+  # Parameters (will update with OPTIONS HASH):
+  # serial_num - serial number of the record wanted.
+  #             
+  # Returns:
+  # An array of hashes, with "delete_secondary_kvpairs" it gets rid of 
+  # hashes with key values of integers. With "array[0]" it takes the
+  # remaining hashes out of the array.
+  #
+  # Working. NOTE - was working without referring to self? idk...seems
+  # to need self now...idk.
+  def self.find_by_serial_num(options)
+    serial_num = options["serial_num"]
+    array = DATABASE.execute("SELECT * FROM dogs WHERE serial_num = #{serial_num}")
+    delete_secondary_kvpairs(array, :placeholder)
+    array[0]    
+  end
+  
+  
+  # Public: #show_all_breeds
+  # Shows all the breeds in the database.
+  #
+  # Parameters:
+  # No Parameters               
+  #
+  # Returns:
+  # An array of hashes, with "delete_secondary_kvpairs" it gets rid of 
+  # hashes with key values of integers. With "array[0]" it takes the
+  # remaining hashes out of the array.
+  #
+  # State changes:
+  # NA?
+  #
+  # This method IS working. DONE.
+  def self.show_all_breeds
+    array = DATABASE.execute("SELECT breed FROM dogs")
+    delete_secondary_kvpairs(array, :placeholder)
+    array[0]
   end
   
 end
