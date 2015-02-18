@@ -14,6 +14,7 @@ DATABASE.results_as_hash = true
 # Home Page 
 get "/" do
   @title = "Findo"
+  @header = "FINDO"
   erb :index, :layout => :boilerplate
 end
 
@@ -25,12 +26,15 @@ get "/found_pet" do
 end
 
 # New User Set Up
+# No methods here.
 get "/new_user" do
   @title = "Sign Up"
   @header = "SIGN UP"
   erb :new_user, :layout => :boilerplate
 end
 
+# working - @email was being fussy though,
+# for viewing purposes...may need to check.
 get "/new_user_confirmed" do
   @title = "Sign Up"
   @header = "Confirmation"
@@ -43,6 +47,7 @@ get "/new_user_confirmed" do
   @city = params["city"]
   @state = params["state"]
   @zip = params["zip"]
+  
   @o = Owner.new(params)
   @o.insert
   erb :new_user_confirmed, :layout => :boilerplate

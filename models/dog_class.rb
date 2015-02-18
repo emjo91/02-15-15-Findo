@@ -15,7 +15,10 @@ require_relative 'class_module.rb'
 #
 # Public Methods:
 # insert
-# self.show_all_breeds
+# update - TODO
+# find_by_serial_num
+# show_all_breeds
+# find_id_by_serial_num
 #
 class Dog
   extend ClassModule
@@ -53,6 +56,32 @@ class Dog
     DATABASE.execute("INSERT INTO dogs (name, breed, age, serial_num, colour, description, temperament_id, owner_id) VALUES 
                     ('#{@name}', '#{@breed}', #{@age}, #{@serial_num}, '#{@colour}', '#{@description}', #{@temperament_id}, #{@owner_id})")
     @id = DATABASE.last_insert_row_id
+  end
+  
+  
+  # TODO - working on an update/save method for "dogs".
+  # Public: #update
+  # Allows a person to update a dog entry.
+  # MUST know the dog's serial number (as they do not know the id number, more
+  # than likely.) SERIAL NUMBER CANNOT CHANGE!
+  #
+  # Parameters:
+  # TODO               
+  #
+  # Returns:
+  # id
+  #
+  # State changes:
+  # NA?
+  #
+  # This method is a WIP
+  def update(options)
+    serial_num = options["serial_num"] #finds the dog's record.
+    name = options["name"]
+    breed = options["breed"]
+    age = options["age"]
+    colour = options["colour"]
+    description = options["description"] 
   end
   
   
@@ -96,6 +125,33 @@ class Dog
     array = DATABASE.execute("SELECT breed FROM dogs")
     delete_secondary_kvpairs(array, :placeholder)
     array[0]
+  end
+  
+  
+  # Public: #self.find_id_by_serial_num
+  # Grabs the record id based off of a serial number given by the user.
+  #
+  # Parameters:
+  # serial_num              
+  #
+  # Returns:
+  # An Integer, specifially the record id.
+  #
+  # State changes:
+  # NA?
+  #
+  # This method IS working. DONE.
+  # THIS IS WORKING!
+  # Maybe refactor this if possible? It's getting a bit long...
+  # Seems to be working...not sure why it wasn't just one time...
+  def self.find_id_by_serial_num(options)
+    serial_num = options["serial_num"]
+    array = DATABASE.execute("SELECT id FROM dogs WHERE serial_num = #{serial_num}")
+    delete_secondary_kvpairs(array, :placeholder)
+    array[0].each do |x, id|
+      @id = id
+    end
+    return @id 
   end
   
 end

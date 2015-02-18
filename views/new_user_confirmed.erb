@@ -4,42 +4,18 @@
 
 <!-- Example of how this may look...rather than redoing values. -->
 <p>Name: <%= @o.name %></p>
+<p>Secondary Owner: <%= @o.secondary_owner %></p>
+<p>Phone Number: <%= @o.phone_num %></p>
+<!-- This was giving me crap, if there's an error, this is why. -->
+<p>Address: <%= @o.address %></p>
+<p>City: <%= @o.city %></p>
+<p>State: <%= @o.state %></p>
+<p>Zip Code: <%= @o.zip %></p>
 
-<p>Your information has been stored!</p>
-
+<br>
+<p><b>Your information has been stored!</b></p>
+<br><br>
 <nav>
-  <a href="#">Add a pet</a> -
+  <a href="/new_user_dog">Add a pet</a> -
   <a href="#">Edit User</a>
 </nav>
-
-
-<!-- May not use this to pass along values...thinking about it. -->
-<!-- <form action="/new_user_dog">
-  <p>Owner Name (first and last):</p>
-  <input type="hidden" type="text" name="name">
-
-  <p>Secondary Owner Name:</p>
-  <input type="hidden" type="text" name="secondary_owner">
-
-  <p>Phone Number <br> (ex 4025551234):</p>
-  <input type="hidden" type="text" name="phone_num">
-
-  <p>Email Adress <br> (ex findo@gmail.com):</p>
-  <input type="hidden" type="text" name="email">
-
-  <p>Address:</p>
-  <input type="hidden" type="text" name="address">
-
-  <p>City:</p>
-  <input type="hidden" type="text" name="city">
-
-  <p>State:</p>
-  <input type="hidden" type="text" name="state">
-
-  <p>Zip Code:</p>
-  <input type="hidden" type="text" name="zip">
-
-  <br><br>
-  <input type="submit" value="Submit">
-
-</form> -->

@@ -11,32 +11,26 @@
 
 
 d1 = Dog.new({"name"=>"Kobayashi Maru", "breed"=>"English Shepherd", "age"=>2, "serial_num"=>190712, "colour"=>"Black tri", "description"=>"Arthritis, fearful of new people.", "temperament_id"=>24, "owner_id"=>1})
-d2 = Dog.new({"name"=>"Phoebe", "breed"=>"Heeler x", "age"=>3, "serial_num"=>101311, 
-              "colour"=>"Black tri", "description"=>"Fearful of people.", 
-              "temperament_id"=>13, "owner_id"=>1})
-d3 = Dog.new({"name"=>"Lexi", "breed"=>"Maltese", "age"=>13, "serial_num"=>190501, 
-              "colour"=>"White", "description"=>"Doesn't like head patted", 
-              "temperament_id"=>21, "owner_id"=>2})
-d4 = Dog.new({"name"=>"Lex", "breed"=>"Australian Shepherd", "age"=>3, "serial_num"=>100511, 
-              "colour"=>"Red tri", "description"=>"Super sweet", "temperament_id"=>14, "owner_id"=>3})
-d5 = Dog.new({"name"=>"", "breed"=>"", "age"=>, "serial_num"=>, "colour"=>"", "description"=>"", "temperament_id"=>, "owner_id"=>})
-d6 = Dog.new({"name"=>"", "breed"=>"", "age"=>, "serial_num"=>, "colour"=>"", "description"=>"", "temperament_id"=>, "owner_id"=>})
-d7 = Dog.new({"name"=>"", "breed"=>"", "age"=>, "serial_num"=>, "colour"=>"", "description"=>"", "temperament_id"=>, "owner_id"=>})
-d8 = Dog.new({"name"=>"", "breed"=>"", "age"=>, "serial_num"=>, "colour"=>"", "description"=>"", "temperament_id"=>, "owner_id"=>})
-d9 = Dog.new({"name"=>"", "breed"=>"", "age"=>, "serial_num"=>, "colour"=>"", "description"=>"", "temperament_id"=>, "owner_id"=>})
-d10 = Dog.new({"name"=>"", "breed"=>"", "age"=>, "serial_num"=>, "colour"=>"", "description"=>"", "temperament_id"=>, "owner_id"=>})
+d2 = Dog.new({"name"=>"Phoebe", "breed"=>"Heeler x", "age"=>3, "serial_num"=>101311, "colour"=>"Black tri", "description"=>"Fearful of people.", "temperament_id"=>13, "owner_id"=>1})
+d3 = Dog.new({"name"=>"Lexi", "breed"=>"Maltese", "age"=>13, "serial_num"=>190501, "colour"=>"White", "description"=>"Doesn not like head patted", "temperament_id"=>21, "owner_id"=>2})
+d4 = Dog.new({"name"=>"Lex", "breed"=>"Australian Shepherd", "age"=>3, "serial_num"=>100511, "colour"=>"Red tri", "description"=>"Super sweet", "temperament_id"=>14, "owner_id"=>3})
+d5 = Dog.new({"name"=>"Sparky", "breed"=>"Chow x", "age"=>9, "serial_num"=>763827, "colour"=>"Blonde", "description"=>"Very sweet", "temperament_id"=>23, "owner_id"=>4})
+d6 = Dog.new({"name"=>"Sky", "breed"=>"Beagle", "age"=>4, "serial_num"=>118972, "colour"=>"Black tri", "description"=>"Loves people", "temperament_id"=>7, "owner_id"=>4})
+d7 = Dog.new({"name"=>"Stitch", "breed"=>"Heeler x", "age"=>3, "serial_num"=>103111, "colour"=>"White with black spots", "description"=>"Kinda crazy", "temperament_id"=>25, "owner_id"=>5})
+d8 = Dog.new({"name"=>"Jupiter", "breed"=>"Cavalier King Charles Spaniel", "age"=>1, "serial_num"=>223157, "colour"=>"Red and white", "description"=>"Silly little goober", "temperament_id"=>23, "owner_id"=>6})
+d9 = Dog.new({"name"=>"Bruce", "breed"=>"Cocker Spaniel", "age"=>5, "serial_num"=>762911, "colour"=>"Black and tan", "description"=>"Does not like big dogs", "temperament_id"=>4, "owner_id"=>6})
+d10 = Dog.new({"name"=>"Daisy Doo", "breed"=>"Lab x", "age"=>2, "serial_num"=>475621, "colour"=>"Yellow", "description"=>"Nervous with strangers", "temperament_id"=>7, "owner_id"=>7})
+d11 = Dog.new({"name"=>"Daisy Doo", "breed"=>"Lab x", "age"=>2, "serial_num"=>475621, "colour"=>"Yellow", "description"=>"Nervous with strangers", "temperament_id"=>7, "owner_id"=>7})
 
-o1 = Owner.new({"name"=>"Emily Johnson", "secondary_owner"=>"Beth Johnson", "phone_num"=>4024997222, 
-                "email"=>"3mle33@gmail.com", "address"=>"4048 N 81st Ave Cir", "city"=>"Omaha", "state"=>"NE", "zip"=>68134})
-o2 = Owner.new({"name"=>"John Johnson", "secondary_owner"=>"Beth Johnson", "phone_num"=>4024213565, 
-                "email"=>"texthere@gmail.com", "address"=>"6100 S 41st St", "city"=>"Lincoln", "state"=>"NE", "zip"=>68516})
-o3 = Owner.new({"name"=>"Damen Abbott", "secondary_owner"=>"NA", "phone_num"=>4025556748, 
-                "email"=>"texthere@gmail.com", "address"=>"74212 S Center St", "city"=>"Omaha", "state"=>"NE", "zip"=>68127})
-o4 = Owner.new({"name"=>"", "secondary_owner"=>"", "phone_num"=>, "email"=>"", "address"=>"", "city"=>"", "state"=>"", "zip"=>})
-o5 = Owner.new({"name"=>"", "secondary_owner"=>"", "phone_num"=>, "email"=>"", "address"=>"", "city"=>"", "state"=>"", "zip"=>})
-o6 = Owner.new({"name"=>"", "secondary_owner"=>"", "phone_num"=>, "email"=>"", "address"=>"", "city"=>"", "state"=>"", "zip"=>})
-o7 = Owner.new({"name"=>"", "secondary_owner"=>"", "phone_num"=>, "email"=>"", "address"=>"", "city"=>"", "state"=>"", "zip"=>})
-o8 = Owner.new({"name"=>"", "secondary_owner"=>"", "phone_num"=>, "email"=>"", "address"=>"", "city"=>"", "state"=>"", "zip"=>})
+
+o1 = Owner.new({"name"=>"Emily Johnson", "secondary_owner"=>"Beth Johnson", "phone_num"=>4024997222, "email"=>"3mle33@gmail.com", "address"=>"4048 N 81st Ave Cir", "city"=>"Omaha", "state"=>"NE", "zip"=>68134})
+o2 = Owner.new({"name"=>"John Johnson", "secondary_owner"=>"Beth Johnson", "phone_num"=>4024213565, "email"=>"texthere@gmail.com", "address"=>"6100 S 41st St", "city"=>"Lincoln", "state"=>"NE", "zip"=>68516})
+o3 = Owner.new({"name"=>"Damen Abbott", "secondary_owner"=>"NA", "phone_num"=>4025556748, "email"=>"texthere@gmail.com", "address"=>"74212 S Center St", "city"=>"Omaha", "state"=>"NE", "zip"=>68127})
+o4 = Owner.new({"name"=>"Sandie Acker", "secondary_owner"=>"NA", "phone_num"=>4028959595, "email"=>"s.acker@gmail.com", "address"=>"4048 N 81st Ave Cir", "city"=>"Omaha", "state"=>"NE", "zip"=>68134})
+o5 = Owner.new({"name"=>"Shonda Jenkins", "secondary_owner"=>"Bob Jenkins", "phone_num"=>4023334321, "email"=>"yaysayers@gmail.com", "address"=>"34212 LaFayette Cir", "city"=>"Omaha", "state"=>"NE", "zip"=>68137})
+o6 = Owner.new({"name"=>"Kristina Wilkins", "secondary_owner"=>"Jim Notwilkins", "phone_num"=>4023331040, "email"=>"kwilkings@gmail.com", "address"=>"4032 N 156th Ave", "city"=>"Omaha", "state"=>"NE", "zip"=>68132})
+o7 = Owner.new({"name"=>"Rayden Schulkey", "secondary_owner"=>"Jeremy Chadwell", "phone_num"=>4025557621, "email"=>"naydean@gmail.com", "address"=>"12376 Falala Drive", "city"=>"Elkhorn", "state"=>"NE", "zip"=>68715})
+o8 = Owner.new({"name"=>"Brandi Atkinson", "secondary_owner"=>"NA", "phone_num"=>4024217865, "email"=>"bcandy@gmail.com", "address"=>"6523 N 81st", "city"=>"Lincoln", "state"=>"NE", "zip"=>68518})
 
 t1 = Temperament.new({"temperament"=>"Hardy"})
 t2 = Temperament.new({"temperament"=>"Lonely"})

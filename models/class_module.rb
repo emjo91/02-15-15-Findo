@@ -12,8 +12,8 @@
 
 module ClassModule
     
-    
-  # TODO
+  # TODO - Need to find a way to take it out of the array. "array[0], is not
+  # working"  
   # Public: #find
   # Pulls a record from a table by it's ID.
   #
@@ -34,6 +34,19 @@ module ClassModule
     delete_secondary_kvpairs(array, :placeholder)
   end
   
+  
+  # TODO - Need to find a way to take it out of the array. "array[0], is not
+  # working"
+  # Public: #show_all
+  # Shows all fields and records in the table.
+  #
+  # Parameters (will update with OPTIONS HASH):
+  # table - table of desire field
+  #             
+  # Returns:
+  # Desired table fields and records, as an array of hashes. With the "delete_secondary_kvpairs" it now returns an array of hashes with desired key value pairs. No intgers as the keys.
+  #
+  # This method is a WIP, works...needs to be cleaned up.
   # Not sure why when I put "array[0]", it only shows the first temperament.
   def show_all(options)
     table = options["table"]
@@ -67,16 +80,18 @@ module ClassModule
   
   
   # Public: #delete_secondary_kvpairs
-  # Gets rid of the safeguard key-value pairs that SQLite auto includes where the key is an integer 
+  # Gets rid of the safeguard key-value pairs that SQLite auto includes where
+  # the key is an integer 
   #
   # Parameters:
-  # array_name  - Name of array on which method is being run
+  # array       - Name of array on which method is being run
   # placeholder - Placeholder text for loop             
   #
   # Returns:
   # The updated array (minus gratuitous key-value pairs)
   #
-  # This works. NOTE: You need to make the placeholder a symbol when using.
+  # This works. NOTE: You need to make the placeholder a symbol when using
+  # in other methods. :)
   def delete_secondary_kvpairs(array, placeholder)    
     array.each do |placeholder|
       placeholder.delete_if do |key, value|

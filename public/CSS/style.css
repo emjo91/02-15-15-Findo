@@ -1,5 +1,7 @@
 * {
   margin: 0 auto;
+  background: #d23f3f;
+  color: #ffffff;
 }
 
 #page-wrap {
@@ -12,7 +14,8 @@ h1 {
   font-family: "Arial Black";
   text-align: center;
   font-size: 72px;
-  border-bottom: 1px #000000 solid;
+  border-bottom: 1px #ffffff solid;
+  color: #ffffff;
 }
 
 h3 {
@@ -21,16 +24,32 @@ h3 {
   padding: 15px 0px 15px 0px
 }
 
+/* Not sure if this is the font-size and line-height that I want, may need to re-adjust*/
 p {
   font-family: "Arial";
+  font-size: 18px;
+  line-height: 24px;
+  color: #ffffff;
 }
 
-nav {
+a {
   font-family: "Arial";
-}
+  font-color: #000000;
+  text-decoration: none;
+  color: #ffffff;
+  }
+  nav.hover{
+    font-color: #96b626;
+  }
 
 .footer_nav {
   margin: 30px 0px 0px 0px;
-  padding: 10px 0px 0px 0px;
-  border-top: 1px #000000 solid;
+  padding: 10px 0px 20px 0px;
+  border-top: 1px #ffffff solid;
+}
+
+input {
+  background-color: #ffffff;
+  color: #000000;
+  margin: 5px 0px 5px 0px;
 }
