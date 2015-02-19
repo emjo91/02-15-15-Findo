@@ -9,11 +9,11 @@
 # #save - will make
 # #find - WIP
 # #find_by_serial_num
+# #delete_record
 
 module ClassModule
     
-  # TODO - Need to find a way to take it out of the array. "array[0], is not
-  # working"  
+    
   # Public: #find
   # Pulls a record from a table by it's ID.
   #
@@ -61,6 +61,25 @@ module ClassModule
   end
 
   
+  
+  # Public: #delete_record
+  # Permanently deletes a record from a table.
+  #
+  # Parameters:
+  # table - Name of table you want the record deleted from.
+  # id    - Id of the record you want deleted.
+  #             
+  # Returns:
+  # Empty array
+  #
+  # This method DOES work.
+  def delete_record(options)
+    table = options["table"]
+    id = options["id"]
+    DATABASE.execute("DELETE FROM #{table} WHERE id = #{id}")
+  end
+  
+  
   # Public: #terminate
   # Permanently deletes a table
   #
@@ -98,10 +117,9 @@ module ClassModule
         key.is_a?(Integer)
       end
     end
-    
     return array
-    
   end
+
   
 
 end

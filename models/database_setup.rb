@@ -26,3 +26,12 @@ DATABASE.results_as_hash = true
 # owner_id and temperament_id are the foreign keys in the table.
 # serial_num MUST be unique.
 # temperaments and dogs are a JOIN table.
+
+# not sure if this will piss things off.
+# SELECT dogs.serial_num, dogs.name, dogs.breed, dogs.age, dogs.colour, dogs.description, dogs.owner_id, owners.id, owners.name AS owner, ownwers.phone_num AS phone, owners.email
+# FROM dogs
+# JOIN owners
+# ON dogs.owner_id = owners.id
+# WHERE serial_num = serial_num;
+#
+# SELECT owners.email FROM dogs JOIN owners ON dogs.owner_id = owners.id WHERE serial_num = 101311;

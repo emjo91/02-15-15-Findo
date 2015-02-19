@@ -1,0 +1,39 @@
+<h1><%= @header %></h1>
+
+<div id="float-left">
+  <form action="edit_pet_confirm">
+  
+    <!-- This is the serial number from the previous page... -->
+    <input type="hidden" name="serial_num" 
+    value="<%= @serial_num %>">
+  
+    <p>Name:</p>
+    <input type="text" name="name">
+  
+    <p>Breed:</p>
+    <input type="text" name="breed">
+  
+    <p>Age:</p>
+    <input type="text" name="age">
+  
+    <p>Colour:</p>
+    <input type="text" name="colour">
+  
+    <p>Description:</p>
+    <input type="text" name="description">
+
+    <br><br>
+    <input type="submit" value="Submit">
+
+  </form>
+  <br>
+</div><!-- end right-float -->
+
+<div id="float-right">
+  <p>Current Information:</p>
+  <br>
+  <% @array[0].each do |x, y| %>
+    <p><%= "#{x.capitalize}: #{y}" %></p>
+  <% end %>
+  <br><br>
+</div><!-- end float-right -->

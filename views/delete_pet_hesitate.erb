@@ -1,0 +1,19 @@
+<h1><%= @header %></h1>
+
+<center>
+  
+  <h3>Are you sure you want to delete this pet?</h3>
+  
+  <% @array[0].each do |x, y| %>
+    <p><%= "#{x.capitalize}: #{y}" %></p>
+  <% end %>
+  
+  <form action="/delete_pet_confirm">
+    
+    <input type="hidden" name="serial_num" value="<%= @serial_num %>">
+
+    <br><br>
+    <input type="submit" value="Submit">
+  
+  </form>
+</center>

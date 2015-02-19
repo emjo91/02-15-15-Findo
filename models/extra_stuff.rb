@@ -8,6 +8,8 @@
 
 # You only need temperament for creating a new temperament object.
 
+# array[0] does not seem to work for displaying more than one hash in an array...only for displaying one thing.
+
 
 
 d1 = Dog.new({"name"=>"Kobayashi Maru", "breed"=>"English Shepherd", "age"=>2, "serial_num"=>190712, "colour"=>"Black tri", "description"=>"Arthritis, fearful of new people.", "temperament_id"=>24, "owner_id"=>1})
@@ -20,7 +22,7 @@ d7 = Dog.new({"name"=>"Stitch", "breed"=>"Heeler x", "age"=>3, "serial_num"=>103
 d8 = Dog.new({"name"=>"Jupiter", "breed"=>"Cavalier King Charles Spaniel", "age"=>1, "serial_num"=>223157, "colour"=>"Red and white", "description"=>"Silly little goober", "temperament_id"=>23, "owner_id"=>6})
 d9 = Dog.new({"name"=>"Bruce", "breed"=>"Cocker Spaniel", "age"=>5, "serial_num"=>762911, "colour"=>"Black and tan", "description"=>"Does not like big dogs", "temperament_id"=>4, "owner_id"=>6})
 d10 = Dog.new({"name"=>"Daisy Doo", "breed"=>"Lab x", "age"=>2, "serial_num"=>475621, "colour"=>"Yellow", "description"=>"Nervous with strangers", "temperament_id"=>7, "owner_id"=>7})
-d11 = Dog.new({"name"=>"Daisy Doo", "breed"=>"Lab x", "age"=>2, "serial_num"=>475621, "colour"=>"Yellow", "description"=>"Nervous with strangers", "temperament_id"=>7, "owner_id"=>7})
+d11 = Dog.new({"name"=>"Candy", "breed"=>"Lab", "age"=>1, "serial_num"=>152713, "colour"=>"Yellow", "description"=>"Friendly and cute", "temperament_id"=>22, "owner_id"=>8})
 
 
 o1 = Owner.new({"name"=>"Emily Johnson", "secondary_owner"=>"Beth Johnson", "phone_num"=>4024997222, "email"=>"3mle33@gmail.com", "address"=>"4048 N 81st Ave Cir", "city"=>"Omaha", "state"=>"NE", "zip"=>68134})

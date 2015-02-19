@@ -104,4 +104,51 @@ extend ClassModule
   end
   
   
+  # Public: #return_email_by_serial_num
+  # Pulls the owner's email by a dog's serial_num
+  #
+  # Parameters:
+  # serial_num               
+  #
+  # Returns:
+  # An array of hashes, with "delete_secondary_kvpairs" it gets rid of 
+  # hashes with key values of integers. With "array[0]" it takes the
+  # remaining hashes out of the array.
+  #
+  # State changes:
+  # NA?
+  #
+  # This method IS working.
+  def self.return_email_by_serial_num(options)
+    serial_num = options["serial_num"]
+    array = DATABASE.execute("SELECT owners.email FROM dogs JOIN owners ON dogs.owner_id = owners.id WHERE serial_num = #{serial_num}")
+    delete_secondary_kvpairs(array, :placeholder)
+    array[0]
+  end
+  
+  
+  # Public: #return_owner_id_by_serial_num
+  # Pulls the owner's id by a dog's serial_num
+  #
+  # Parameters:
+  # serial_num               
+  #
+  # Returns:
+  # An integer. The id number.
+  #
+  # State changes:
+  # NA?
+  #
+  # This method IS working.
+  def self.return_owner_id_by_serial_num(options)
+    serial_num = options["serial_num"]
+    array = DATABASE.execute("SELECT owners.id FROM dogs JOIN owners ON dogs.owner_id = owners.id WHERE serial_num = #{serial_num}")
+    delete_secondary_kvpairs(array, :placeholder)
+    array[0].each do |x, id|
+      @id = id
+    end
+    return @id 
+  end
+  
+  
 end

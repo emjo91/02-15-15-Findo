@@ -15,7 +15,7 @@ require_relative 'class_module.rb'
 #
 # Public Methods:
 # insert
-# update - TODO
+# update 
 # find_by_serial_num
 # show_all_breeds
 # find_id_by_serial_num
@@ -59,29 +59,36 @@ class Dog
   end
   
   
-  # TODO - working on an update/save method for "dogs".
+  # TODO: Does this need to update the object as well?? BLARGH.
   # Public: #update
   # Allows a person to update a dog entry.
   # MUST know the dog's serial number (as they do not know the id number, more
   # than likely.) SERIAL NUMBER CANNOT CHANGE!
   #
-  # Parameters:
-  # TODO               
+  # Parameters: TODO option's hash.
+  # serial_num
+  # name
+  # breed
+  # age
+  # colour
+  # description           
   #
   # Returns:
-  # id
+  # Empty Array
   #
   # State changes:
   # NA?
   #
-  # This method is a WIP
-  def update(options)
-    serial_num = options["serial_num"] #finds the dog's record.
-    name = options["name"]
-    breed = options["breed"]
-    age = options["age"]
-    colour = options["colour"]
-    description = options["description"] 
+  # This method DOES work.
+  def self.update(options)
+    @serial_num = options["serial_num"] #finds the dog's record.
+    @name = options["name"]
+    @breed = options["breed"]
+    @age = options["age"]
+    @colour = options["colour"]
+    @description = options["description"]
+    DATABASE.execute("UPDATE dogs SET name = '#{@name}', breed = '#{@breed}', age = '#{@age}', colour = '#{@colour}',
+                      description = '#{@description}' WHERE serial_num = #{@serial_num}") 
   end
   
   
@@ -100,12 +107,12 @@ class Dog
   # to need self now...idk.
   def self.find_by_serial_num(options)
     serial_num = options["serial_num"]
-    array = DATABASE.execute("SELECT * FROM dogs WHERE serial_num = #{serial_num}")
+    array = DATABASE.execute("SELECT name, breed, age, colour, description FROM dogs WHERE serial_num = #{serial_num}")
     delete_secondary_kvpairs(array, :placeholder)
-    array[0]    
   end
   
   
+  # TODO - need to find a way to take it out of the array.
   # Public: #show_all_breeds
   # Shows all the breeds in the database.
   #
@@ -124,7 +131,6 @@ class Dog
   def self.show_all_breeds
     array = DATABASE.execute("SELECT breed FROM dogs")
     delete_secondary_kvpairs(array, :placeholder)
-    array[0]
   end
   
   

@@ -74,37 +74,90 @@ get "/existing_user" do
   erb :existing_user, :layout => :boilerplate
 end
 
+# Checking pet info...
+# Has form with serial_num
 get "/check_pet_info" do
   @title = "View Pet Info"
   @header = "FINDO"
   erb :check_pet_info, :layout => :boilerplate
 end
 
-get "/view_pet_info" do
+# Displays pet info from serial_num
+# This works.
+get "/display_pet_info" do
   @title = "View Pet Info"
   @header = "FINDO"
-  erb :view_pet_info, :layout => :boilerplate
+  @serial_num = params["serial_num"]
+  @array = Dog.find_by_serial_num(params)
+  erb :display_pet_info, :layout => :boilerplate
 end
 
 
+# Edit Pet Info
+# Goes to /edit_pet_form
 get "/edit_pet_info" do
   @title = "Edit Pet Info"
   @header = "FINDO"
   erb :edit_pet_info, :layout => :boilerplate
 end
 
+# Working
+# Goes to /edit_pet_confirm
+get "/edit_pet_form" do
+  @title = "Edit Pet Info"
+  @header = "FINDO"
+  # Show the current info on this page.
+  @serial_num = params["serial_num"]
+  @array = Dog.find_by_serial_num(params)
+  erb :edit_pet_form, :layout => :boilerplate
+end
 
+# This IS working.
+# Final step in editing the pet.
+get "/edit_pet_confirm" do
+  @title = "Confirm Pet Info"
+  @header = "FINDO"
+  @serial_num = params["serial_num"]
+  @name = params["name"]
+  @breed = params["breed"]
+  @colour = params["colour"]
+  @age = params["age"]
+  @description = params["description"]
+  @a = Dog.update(params)
+  erb :edit_pet_confirm, :layout => :boilerplate
+end
+
+# Edit Owner Info
 get "/edit_owner_info" do
   @title = "View Owner Info"
   @header = "FINDO"
   erb :edit_owner_info, :layout => :boilerplate
 end
 
-
+# Starting page for deleting pet info. Goes to delete_pet_hesitate
 get "/delete_pet_info" do
   @title = "Delete Pet Info"
   @header = "FINDO"
   erb :delete_pet_info, :layout => :boilerplate
+end
+
+# Display info to be deleted...then onto /delete_pet_confirm
+get "/delete_pet_hesitate" do
+  @title = "Delete Pet Info"
+  @header = "FINDO"
+  @serial_num = params["serial_num"]
+  @array = Dog.find_by_serial_num(params)
+  erb :delete_pet_hesitate, :layout => :boilerplate
+end
+
+# THIS WORKS!
+get "/delete_pet_confirm" do
+  @title = "Delete Pet Confirm"
+  @header = "FINDO"
+  @serial_num = params["serial_num"]
+  @id = Dog.find_id_by_serial_num(params)
+  Dog.delete_record({"table"=>"dogs", "id"=>@id})
+  erb :delete_pet_confirm, :layout => :boilerplate
 end
   
   
