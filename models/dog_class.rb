@@ -59,7 +59,6 @@ class Dog
   end
   
   
-  # TODO: Does this need to update the object as well?? BLARGH.
   # Public: #update
   # Allows a person to update a dog entry.
   # MUST know the dog's serial number (as they do not know the id number, more

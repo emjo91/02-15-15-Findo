@@ -18,15 +18,18 @@ get "/" do
   erb :index, :layout => :boilerplate
 end
 
-# Found Pet
+# Found Pet - This page will display owner and dog info.
+# Need to get email working.
 get "/found_pet" do
-  @title = "Found!"
-  @header = "FINDO"
+  @title = "FOUND"
+  @header = "FOUNDO"
+  @serial_num = params["serial_num"]
+  @array = Owner.return_all_dog_owner_info(params)
   erb :found_pet, :layout => :boilerplate
 end
 
 # New User Set Up
-# No methods here.
+# Goes to /new_user_confirmation
 get "/new_user" do
   @title = "Sign Up"
   @header = "SIGN UP"
@@ -76,6 +79,7 @@ end
 
 # Checking pet info...
 # Has form with serial_num
+# goes to /display_pet_info
 get "/check_pet_info" do
   @title = "View Pet Info"
   @header = "FINDO"
@@ -133,6 +137,22 @@ get "/edit_owner_info" do
   @header = "FINDO"
   erb :edit_owner_info, :layout => :boilerplate
 end
+
+# This edits the owner's information with serial_num
+get "/edit_owner_form" do
+  @title = "Edit Owner"
+  @header = "FINDO"
+  @serial_num = params["serial_num"]
+  @array = Owner.return_owner_info_by_serial_num(params)
+  erb :edit_owner_form, :layout => :boilerplate
+end
+
+get "/edit_owner_confirm" do
+  @title = "Edit Owner"
+  @header = "FINDO"
+  @serial_num = params["serial_num"]
+end
+
 
 # Starting page for deleting pet info. Goes to delete_pet_hesitate
 get "/delete_pet_info" do

@@ -1,0 +1,42 @@
+<h1><%= @header %></h1>
+
+<div id="float-left">
+  <form action="#">
+    <input type="hidden" name="serial_num" value="<%= @serial_num %>">
+  
+    <p>Owner Name <br> (first and last):</p>
+    <input type="text" name="name">
+
+    <p>Secondary Owner Name:</p>
+    <input type="text" name="secondary_owner">
+
+    <p>Phone Number <br> (ex. 4025551234):</p>
+    <input type="text" name="phone_num">  
+  
+    <p>Email Adress <br> (ex. findo@gmail.com):</p>
+    <input type="text" name="email">  
+
+    <p>Address:</p>
+    <input type="text" name="address">
+  
+    <p>City:</p>
+    <input type="text" name="city">
+  
+    <p>State:</p>
+    <input type="text" name="state">
+  
+    <p>Zip Code:</p>
+    <input type="text" name="zip">
+
+    <br><br>
+    <input type="submit" value="Submit">
+  </form>
+</div><!-- end float-left -->
+
+<div id="float-right">
+  <p>Current User Info:</p>
+  <br>
+  <% @array[0].each do |x, y| %>
+    <p><%= "#{x.capitalize}: #{y}" %></p>
+  <% end %>
+</div><!-- End right-float -->

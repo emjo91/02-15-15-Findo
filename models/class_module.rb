@@ -55,13 +55,6 @@ module ClassModule
   end
 
   
-  # TODO - No code yet.
-  def serial_num_pull_owner_name_phone_num
-    # I need to make a method that pulls a serial number the dog's table, then pulls corresponding info from owner info. Only name and phone number.
-  end
-
-  
-  
   # Public: #delete_record
   # Permanently deletes a record from a table.
   #
