@@ -59,3 +59,7 @@ t22 = Temperament.new({"temperament"=>"Gentle"})
 t23 = Temperament.new({"temperament"=>"Sassy"})
 t24 = Temperament.new({"temperament"=>"Careful"})
 t25 = Temperament.new({"temperament"=>"Quirky"})
+
+What PONY looks like: 
+
+Pony.mail(:to => '3mle33@gmail.com', :from => 'findodonotreply@gmail.com', :subject => 'hi', :body => 'Hello there.')

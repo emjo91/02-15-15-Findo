@@ -54,8 +54,8 @@ extend ClassModule
   #
   # This method IS working.
   def insert
-    DATABASE.execute("INSERT INTO owners (name, secondary_owner, phone_num, email, address, city, state, zip) VALUES 
-                    ('#{@name}', '#{@secondary_owner}', #{@phone_num}, '#{@email}','#{@address}', '#{@city}', '#{@state}', #{@zip})")
+    DATABASE.execute("INSERT INTO owners (name, secondary_owner, phone_num, email, address, city, state, zip) 
+    VALUES ('#{@name}', '#{@secondary_owner}', #{@phone_num}, '#{@email}', '#{@address}', '#{@city}', '#{@state}', #{@zip})")
     @id = DATABASE.last_insert_row_id
   end
   
@@ -233,6 +233,30 @@ extend ClassModule
                               owners.email, owners.address, owners.city, owners.state, owners.zip FROM dogs JOIN owners 
                               ON dogs.owner_id = owners.id WHERE serial_num = #{serial_num}")
     delete_secondary_kvpairs(array, :placeholder)
+  end
+  
+  
+  # Public: #return_owner_id_by_phone_num
+  # Pulls the owner's id by phone_num
+  #
+  # Parameters:
+  # serial_num               
+  #
+  # Returns:
+  # the ID number of the owner.
+  #
+  # State changes:
+  # NA?
+  #
+  # This method IS working.
+  def self.return_owner_id_by_phone_num(options)
+    phone_num = options["phone_num"]
+    array = DATABASE.execute("SELECT id FROM owners WHERE phone_num = #{phone_num}")
+    delete_secondary_kvpairs(array, :placeholder)
+    array[0].each do |x, id|
+      @id = id
+    end
+    return @id 
   end
   
   

@@ -6,16 +6,15 @@
 <p>Name: <%= @o.name %></p>
 <p>Secondary Owner: <%= @o.secondary_owner %></p>
 <p>Phone Number: <%= @o.phone_num %></p>
-<!-- This was giving me crap, if there's an error, this is why. -->
+<p>Email: <%= @email%></p>
 <p>Address: <%= @o.address %></p>
 <p>City: <%= @o.city %></p>
 <p>State: <%= @o.state %></p>
 <p>Zip Code: <%= @o.zip %></p>
 
-<br>
-<p><b>Your information has been stored!</b></p>
+
 <br><br>
 <nav>
-  <a href="/new_user_dog">Add a pet</a> -
-  <a href="/edit_owner_info">Edit User</a>
+  <a href="/new_user_dog">Edit pet</a> -
+  <a href="/edit_owner_info">Edit Owner</a>
 </nav>

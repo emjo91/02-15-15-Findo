@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'pry'
 require 'sqlite3'
+require 'pony'
 # DATABASE = SQLite3::Database.new("findo_database.db")
 require_relative 'models/dog_class.rb'
 require_relative 'models/owner_class.rb'
@@ -28,6 +29,19 @@ get "/found_pet" do
   erb :found_pet, :layout => :boilerplate
 end
 
+# This is a WIP...idk if it'll actually work. Crossing fingers.
+# Can't seem to get it to take variables as the parameters.
+get "/found_pet_email_send" do
+  @title = "Found"
+  @header = "FINDO"
+  @email = "3mle33@gmal.com"
+  @subject = "hi"
+  @body = "Hello, there."
+  Pony.mail(:to => '3mle33@gmail.com', :from => 'findodonotreply@gmail.com', :subject => '#{@subject}', :body => '#{@body}')
+  erb :found_pet_email_send, :layout => :boilerplate
+end
+
+
 # New User Set Up
 # Goes to /new_user_confirmation
 get "/new_user" do
@@ -36,12 +50,14 @@ get "/new_user" do
   erb :new_user, :layout => :boilerplate
 end
 
+
+# For some reason it's no longer working 02/20/15
 # working - @email was being fussy though,
 # for viewing purposes...may need to check.
+# Goes to add a dog/pet...whatever.
 get "/new_user_confirmed" do
   @title = "Sign Up"
   @header = "Confirmation"
-  
   @name = params["name"]
   @secondary_owner = params["secondary_owner"]
   @phone_num = params["phone_num"]
@@ -50,10 +66,9 @@ get "/new_user_confirmed" do
   @city = params["city"]
   @state = params["state"]
   @zip = params["zip"]
-  
   @o = Owner.new(params)
   @o.insert
-  erb :new_user_confirmed, :layout => :boilerplate
+   erb :new_user_confirmed, :layout => :boilerplate
 end
 
 
@@ -139,6 +154,7 @@ get "/edit_owner_info" do
 end
 
 # This edits the owner's information with serial_num
+# This page goes to /edit_owner_confirm
 get "/edit_owner_form" do
   @title = "Edit Owner"
   @header = "FINDO"
@@ -147,10 +163,23 @@ get "/edit_owner_form" do
   erb :edit_owner_form, :layout => :boilerplate
 end
 
+# I'm not sure why this isn't working. Should work. Coming up with
+# the same error when I had to wait it out...
 get "/edit_owner_confirm" do
   @title = "Edit Owner"
   @header = "FINDO"
   @serial_num = params["serial_num"]
+  @id = Owner.return_owner_id_by_serial_num(params)
+  @name = params["name"]
+  @secondary_owner = params["secondary_owner"]
+  @phone_num = params["phone_num"]
+  @email = params["email"]
+  @address = params["address"]
+  @city = params["city"]
+  @state = params["state"]
+  @zip = params["zip"]
+  @o = Owner.update(params)
+  erb :edit_owner_confirm, :layout => :boilerplate
 end
 
 
