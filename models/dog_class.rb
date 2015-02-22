@@ -91,6 +91,31 @@ class Dog
   end
   
   
+  # Public: #update_owner_id
+  # Allows a person to update an owner's ID
+  #
+  # Parameters: TODO option's hash.
+  # serial_num
+  # name
+  # breed
+  # age
+  # colour
+  # description           
+  #
+  # Returns:
+  # Empty Array
+  #
+  # State changes:
+  # NA?
+  #
+  # This method DOES work.
+  def self.update_owner_id(options)
+    @owner_id = options["owner_id"]
+    @id = options["id"]
+    DATABASE.execute("UPDATE dogs SET owner_id = #{@owner_id} WHERE id = #{@id}")
+  end    
+  
+  
   # Public: #find_by_serial_num
   # Pulls a record from a table by it's serial number.
   #
@@ -158,5 +183,5 @@ class Dog
     end
     return @id 
   end
-  
+    
 end

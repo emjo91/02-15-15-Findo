@@ -8,6 +8,7 @@ require_relative 'models/owner_class.rb'
 require_relative 'models/temperament_class.rb'
 require_relative 'models/class_module'
 require_relative 'models/database_setup.rb'
+require_relative 'models/pony_class.rb'
 
 DATABASE.results_as_hash = true
 
@@ -34,10 +35,10 @@ end
 get "/found_pet_email_send" do
   @title = "Found"
   @header = "FINDO"
-  @email = "3mle33@gmal.com"
-  @subject = "hi"
-  @body = "Hello, there."
-  Pony.mail(:to => '3mle33@gmail.com', :from => 'findodonotreply@gmail.com', :subject => '#{@subject}', :body => '#{@body}')
+  @to = params[:to]
+  @from = params[:from]
+  @subject = params[:subject]
+  @body = params[:body]
   erb :found_pet_email_send, :layout => :boilerplate
 end
 
@@ -51,10 +52,8 @@ get "/new_user" do
 end
 
 
-# For some reason it's no longer working 02/20/15
-# working - @email was being fussy though,
-# for viewing purposes...may need to check.
 # Goes to add a dog/pet...whatever.
+# For some reason, not able to pass along the owner ID more than one page...
 get "/new_user_confirmed" do
   @title = "Sign Up"
   @header = "Confirmation"
@@ -68,21 +67,56 @@ get "/new_user_confirmed" do
   @zip = params["zip"]
   @o = Owner.new(params)
   @o.insert
-   erb :new_user_confirmed, :layout => :boilerplate
+  erb :new_user_confirmed, :layout => :boilerplate
 end
 
 
+# The owner ID is passed along to this page from the previous page. - this is no longer the case.
 # New Dog Set Up
+# goes to new_info_confirmed
 get "/new_user_dog" do
-  @title = "Sign Up"
-  @header = "SIGN UP"
+  @title = "Add a Pet"
+  @header = "FINDO"
   erb :new_user_dog, :layout => :boilerplate
 end
 
+# Goes to verify_new_user_and_dog
+# Need to make a form that inserts the owner's ID into the next page
+# Owner ID and temperament ID will get changed.
+# I'm not sure why the owner id isn't working, or temperament id...but...this is the only way it seems to work...so meh. It works for now.
 get "/new_info_confirmed" do
   @title = "Confirmed"
   @header = "FINDO"
+  @name = params["name"]
+  @breed = params["breed"]
+  @age = params["age"]
+  @colour = params["colour"]
+  @description = params["description"]
+  @temperament_id = 1
+  @temperament_id = 1
+  @d = Dog.new(params)
+  @d.temperament_id = 1
+  @d.owner_id = 1
+  @d.insert
   erb :new_info_confirmed, :layout => :boilerplate
+end
+
+# Goes to /veryify_new_user_and_dog_confirm
+get "/verify_new_user_and_dog" do
+  @title = "Verification"
+  @header = "Verification"
+  erb :verify_new_user_and_dog, :layout => :boilerplate
+end
+
+get "/verify_new_user_and_dog_confirm" do
+  @title = Verify
+  @title = FINDO
+  @phone_num = params["phone_num"]
+  @serial_num = params["serial_num"]
+  id = Dog.find_id_by_serial_num(params) #should give me the for the dog.
+  owner_id = Owner.return_owner_id_by_phone_num(params)
+  Dog.update_owner_id({"owner_id"=>owner_id, "id"=>id})
+  erb :verify_new_user_and_dog_confirm, :layout => :boilerplate
 end
 
 # Edit User/Pull User Info

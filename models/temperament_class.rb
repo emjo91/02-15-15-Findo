@@ -43,7 +43,6 @@ class Temperament
   end  
 
 
-  # TODO - Need to fix hashes.
   # Public: #show_all_temperaments
   # Shows a person all the temperaments listed. This will go into a drop down menu for selection of temperaments.
   #
@@ -58,7 +57,32 @@ class Temperament
   #
   # This method IS working.
   def self.show_all_temperaments
-    DATABASE.execute("SELECT temperament FROM temperaments")
+    array = DATABASE.execute("SELECT temperament FROM temperaments")
+    delete_secondary_kvpairs(array, :placeholder) 
+  end
+  
+  
+  # Public: #temperament_id
+  # Retrieves the ID number of the temperament.
+  #
+  # Parameters:
+  # temperament               
+  #
+  # Returns:
+  # The ID number of the temperament
+  #
+  # State changes:
+  # NA?
+  #
+  # This method IS working.
+  def self.temperament_id(options)
+    temperament = options["temperament"]
+    array = DATABASE.execute("SELECT id FROM temperaments WHERE temperament = '#{temperament}'")
+    delete_secondary_kvpairs(array, :placeholder) 
+    array[0].each do |x, id|
+      @id = id
+    end
+    return @id 
   end
 
 end
