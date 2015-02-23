@@ -23,6 +23,13 @@ get "/" do
   erb :index, :layout => :boilerplate
 end
 
+# Coming soon page
+get "/coming_soon" do
+  @title = "Sorry!"
+  @header = "FINDO"
+  erb :coming_soon, :layout => :boilerplate
+end
+
 # Found Pet - This page will display owner and dog info.
 # Need to get email working.
 get "/found_pet" do
@@ -31,6 +38,7 @@ get "/found_pet" do
   @serial_num = params["serial_num"]
   @array2 = Temperament.return_dog_temperament_by_serial_num(params)
   @array = Owner.return_all_dog_owner_info(params)
+  @email = Owner.return_email_by_serial_num(params)
   erb :found_pet, :layout => :boilerplate
 end
 
@@ -39,10 +47,7 @@ end
 get "/found_pet_email_send" do
   @title = "Found"
   @header = "FINDO"
-  @to = params[:to]
-  @from = params[:from]
-  @subject = params[:subject]
-  @body = params[:body]
+  send_email
   erb :found_pet_email_send, :layout => :boilerplate
 end
 
@@ -86,7 +91,7 @@ end
 
 # Goes to verify_new_user_and_dog
 # Need to make a form that inserts the owner's ID into the next page
-# Owner ID and temperament ID will get changed.
+# Owner ID and temperament ID will get changed.s
 # I'm not sure why the owner id isn't working, or temperament id...but...this is the only way it seems to work...so meh. It works for now.
 get "/new_info_confirmed" do
   @title = "Confirmed"

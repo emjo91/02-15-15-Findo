@@ -4,12 +4,11 @@
 # owner_class.rb, and temperament_class.rb
 #
 # Public Methods:
-# #termainate 
-# #insert - DONE, working.
-# #save - will make
-# #find - WIP
-# #find_by_serial_num
+# #find
+# #show_all
 # #delete_record
+# #terminate
+# #delete_secondary_kvpairs
 
 module ClassModule
     

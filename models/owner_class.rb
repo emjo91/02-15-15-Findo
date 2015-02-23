@@ -16,9 +16,14 @@ require_relative 'class_module.rb'
 #
 # Public Methods:
 # insert
-# find_by_phone_num
-# show_all_owners
-# update
+# #update
+# #find_by_phone_num
+# #show_all_owners
+# #return_email_by_serial_num
+# #return_owner_id_by_serial_num
+# #return_all_dog_owner_info
+# #return_owner_info_by_serial_num
+# #return_owner_id_by_phone_num
 #
 class Owner
 extend ClassModule

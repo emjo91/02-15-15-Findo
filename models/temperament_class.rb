@@ -9,8 +9,10 @@ require_relative 'class_module.rb'
 # @temperament  - String
 #
 # Public Methods:
-# insert
-# self.show_all_temperaments
+# #insert
+# #show_all_temperaments
+# #temperament_id
+# #return_dog_temperament_by_serial_num
 #
 class Temperament
   extend ClassModule

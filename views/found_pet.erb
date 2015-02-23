@@ -1,4 +1,3 @@
-<h1><%= @header %></h1>
 <h3>Thank you for finding this pet!</h3>
 
 
@@ -12,7 +11,10 @@
 
 <br>
 <form action="/found_pet_email_send">
-  <p>Subject:</p>
+  <p>Send to: Email Address:</p>
+  <input type="text" name="email">
+  
+  <br><p>Subject:</p>
   <input type="text" name="subject">
   
   <br>   
@@ -21,8 +23,10 @@
     Enter text here
   </textarea>
 
-  <input type="hidden" name="serial_num">
-
+  <input type="hidden" name="serial_num" value="<%= @serial_num %>">
+  
+  <input type="hidden" name="email" value="<%= @email %>">
+  
   <br><br>
   <input type="submit" value="Submit">
 </form>

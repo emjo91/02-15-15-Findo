@@ -1,30 +1,24 @@
 module FindoHelper
   
-  def try_this
-    Pony.mail :to => params[:email],
-              :from => "me@example.com",
-              :subject => "Thanks for signing my guestbook, #{params[:name]}!",
-              :body => params[:body]
-  end
-  
-  #Not sure if this will actually work...we will see.
-  def message_from_findo
+
+  def send_email
     Pony.mail({
       :from => 'findodonotreply@gmail.com', 
       :to => params[:email],
-      :subject => params[:open_line], 
-      :body => params[:message],
+      :subject => params[:subject], 
+      :body => params[:body],
       :via => :smtp,
       :via_options            => {
         :address              => 'smtp.gmail.com', 
         :port                 => '587', 
         :enable_starttls_auto => true,
         :user_name            => 'findodonotreply',
-        :password             => 'findofindo',
+        :password             => 'password',
         :authentication       => :plain,
         :domain               => 'localhost.localdomain'
       }}) 
   end
+
   
   
   # Working on some code for this...

@@ -14,8 +14,10 @@ require_relative 'class_module.rb'
 # @description - Integer: Unique identifier for particular product
 #
 # Public Methods:
-# insert
-# update 
+# #insert
+# #update 
+# #update_owner_id
+# #update_temperament_id
 # find_by_serial_num
 # show_all_breeds
 # find_id_by_serial_num

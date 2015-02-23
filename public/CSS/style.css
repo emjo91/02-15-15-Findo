@@ -76,3 +76,7 @@ select {
   color: #000000;
   margin: 5px 0px 5px 0px;
 }
+
+img {
+  border-radius: 15px;
+}
