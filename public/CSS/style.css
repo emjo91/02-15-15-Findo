@@ -70,3 +70,9 @@ textarea {
   color: #000000;
   margin: 5px 0px 5px 0px;
 }
+
+select {
+  background-color: #ffffff;
+  color: #000000;
+  margin: 5px 0px 5px 0px;
+}

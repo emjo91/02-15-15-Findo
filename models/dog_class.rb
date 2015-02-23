@@ -95,13 +95,8 @@ class Dog
   # Allows a person to update an owner's ID
   #
   # Parameters: TODO option's hash.
-  # serial_num
-  # name
-  # breed
-  # age
-  # colour
-  # description           
-  #
+  # owner_id
+  # id
   # Returns:
   # Empty Array
   #
@@ -114,6 +109,27 @@ class Dog
     @id = options["id"]
     DATABASE.execute("UPDATE dogs SET owner_id = #{@owner_id} WHERE id = #{@id}")
   end    
+  
+  
+  # Public: #update_temperament_id
+  # Allows a person to update an owner's ID
+  #
+  # Parameters: TODO option's hash.
+  # temperament_id
+  # id
+  #
+  # Returns:
+  # Empty Array
+  #
+  # State changes:
+  # NA?
+  #
+  # This method DOES work.
+  def self.update_temperament_id(options)
+    @temperament_id = options["temperament_id"]
+    @id = options["id"]
+    DATABASE.execute("UPDATE dogs SET temperament_id = #{@temperament_id} WHERE id = #{@id}")
+  end  
   
   
   # Public: #find_by_serial_num

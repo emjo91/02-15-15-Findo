@@ -1,0 +1,41 @@
+<h1><%= @header %></h1>
+
+<p>Here you can add a temperament to your pet!</p>
+<p>Select the temperament that you feels fits your pet best.</p>
+
+
+<form action="/add_temperament_confirm">
+  <p>Serial Number of the pet:</p>
+    <input type="text" name="serial_num"><br>
+  <p>Select a temperament:</p>  
+  <select name="temperament">
+  	<option value="Hardy">Hardy</option>
+  	<option value="Lonely">Lonely</option>
+  	<option value="Brave">Brave</option>
+  	<option value="Adamant">Adamant</option>
+  	<option value="Naughty">Naughty</option>
+  	<option value="Bold">Bold</option>
+  	<option value="Docile">Docile</option>
+  	<option value="Relaxed">Relaxed</option>
+  	<option value="Impish">Impish</option>
+  	<option value="Lax">Lax</option>
+  	<option value="Timid">Timid</option>
+  	<option value="Hasty">Hasty</option>
+  	<option value="Serious">Serious</option>
+  	<option value="Jolly">Jolly</option>
+  	<option value="Naive">Naive</option>
+  	<option value="Modest">Modest</option>
+  	<option value="Mild">Mild</option>
+  	<option value="Quiet">Quiet</option>
+  	<option value="Bashful">Bashful</option>
+  	<option value="Rash">Rash</option>
+  	<option value="Calm">Calm</option>
+  	<option value="Gentle">Gentle</option>
+  	<option value="Sassy">Sassy</option>
+  	<option value="Careful">Careful</option>
+  	<option value="Quirky">Quirky</option>
+  </select>
+
+  <br><br>
+  <input type="submit" value="Submit">
+</form>

@@ -9,8 +9,11 @@ require_relative 'models/temperament_class.rb'
 require_relative 'models/class_module'
 require_relative 'models/database_setup.rb'
 require_relative 'models/pony_class.rb'
+require_relative 'helper.rb'
 
 DATABASE.results_as_hash = true
+
+helpers FindoHelper
 
 
 # Home Page 
@@ -26,6 +29,7 @@ get "/found_pet" do
   @title = "FOUND"
   @header = "FOUNDO"
   @serial_num = params["serial_num"]
+  @array2 = Temperament.return_dog_temperament_by_serial_num(params)
   @array = Owner.return_all_dog_owner_info(params)
   erb :found_pet, :layout => :boilerplate
 end
@@ -71,7 +75,7 @@ get "/new_user_confirmed" do
 end
 
 
-# The owner ID is passed along to this page from the previous page. - this is no longer the case.
+# The owner ID is passed along to this page from the previous page. - this is no longer the case 02/22/15
 # New Dog Set Up
 # goes to new_info_confirmed
 get "/new_user_dog" do
@@ -109,8 +113,8 @@ get "/verify_new_user_and_dog" do
 end
 
 get "/verify_new_user_and_dog_confirm" do
-  @title = Verify
-  @title = FINDO
+  @title = "Verify"
+  @header = "FINDO"
   @phone_num = params["phone_num"]
   @serial_num = params["serial_num"]
   id = Dog.find_id_by_serial_num(params) #should give me the for the dog.
@@ -142,6 +146,7 @@ get "/display_pet_info" do
   @header = "FINDO"
   @serial_num = params["serial_num"]
   @array = Dog.find_by_serial_num(params)
+  @array2 = Temperament.return_dog_temperament_by_serial_num(params)
   erb :display_pet_info, :layout => :boilerplate
 end
 
@@ -181,6 +186,7 @@ get "/edit_pet_confirm" do
 end
 
 # Edit Owner Info
+# Goes to /edit_owner_form
 get "/edit_owner_info" do
   @title = "View Owner Info"
   @header = "FINDO"
@@ -217,7 +223,7 @@ get "/edit_owner_confirm" do
 end
 
 
-# Starting page for deleting pet info. Goes to delete_pet_hesitate
+# Starting page for deleting pet info. Goes to /delete_pet_hesitate
 get "/delete_pet_info" do
   @title = "Delete Pet Info"
   @header = "FINDO"
@@ -242,5 +248,22 @@ get "/delete_pet_confirm" do
   Dog.delete_record({"table"=>"dogs", "id"=>@id})
   erb :delete_pet_confirm, :layout => :boilerplate
 end
+
+
+# This will be a form page that requires serial number of dog...then a drop down for the temperament.
+get "/add_temperament" do
+  @title = "Temperament"
+  @header = "FINDO"
+  erb :add_temperament, :layout => :boilerplate
+end
   
-  
+get "/add_temperament_confirm" do
+  @title = "Temperament"
+  @header = "FINDO"
+  @serial_num = params["serial_num"]
+  @temperament = params["temperament"]
+  temperament_id = Temperament.temperament_id(params)
+  id = Dog.find_id_by_serial_num(params) #should give me the for the dog.
+  Dog.update_temperament_id({"temperament_id"=>temperament_id, "id"=>id})
+  erb :add_temperament_confirm, :layout => :boilerplate
+end

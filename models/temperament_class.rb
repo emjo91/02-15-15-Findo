@@ -84,5 +84,26 @@ class Temperament
     end
     return @id 
   end
+  
+  
+  # Public: #return_dog_temperament_by_serial_num
+  # Retrieves the temperament based on a dog's serial_num
+  #
+  # Parameters:
+  # serial_num              
+  #
+  # Returns:
+  # An array of hashes
+  #
+  # State changes:
+  # NA?
+  #
+  # This method IS working.
+  def self.return_dog_temperament_by_serial_num(options)
+    serial_num = options["serial_num"]
+    array = DATABASE.execute("SELECT temperaments.temperament FROM temperaments JOIN dogs 
+                              ON dogs.temperament_id = temperaments.id WHERE serial_num = #{serial_num}")
+    delete_secondary_kvpairs(array, :placeholder)
+  end
 
 end
