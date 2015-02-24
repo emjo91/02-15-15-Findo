@@ -30,7 +30,7 @@ extend ClassModule
   
   
   attr_reader :id
-  attr_accessor :name, :secondary_owner, :phone_num, :address, :city, :state, :zip
+  attr_accessor :name, :secondary_owner, :phone_num, :address, :city, :state, :zip, :email
   
   def initialize(options)
     @id = options["id"]

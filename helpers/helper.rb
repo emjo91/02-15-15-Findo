@@ -3,7 +3,7 @@ module FindoHelper
 
   def send_email
     Pony.mail({
-      :from => 'findodonotreply@gmail.com', 
+      :from => '3mle33@gmail.com', 
       :to => params[:email],
       :subject => params[:subject], 
       :body => params[:body],
@@ -12,8 +12,8 @@ module FindoHelper
         :address              => 'smtp.gmail.com', 
         :port                 => '587', 
         :enable_starttls_auto => true,
-        :user_name            => 'findodonotreply',
-        :password             => 'password',
+        :user_name            => '3mle33',
+        :password             => 'strong44',
         :authentication       => :plain,
         :domain               => 'localhost.localdomain'
       }}) 

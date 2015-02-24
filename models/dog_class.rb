@@ -88,7 +88,7 @@ class Dog
     @age = options["age"]
     @colour = options["colour"]
     @description = options["description"]
-    DATABASE.execute("UPDATE dogs SET name = '#{@name}', breed = '#{@breed}', age = '#{@age}', colour = '#{@colour}',
+    DATABASE.execute("UPDATE dogs SET name = '#{@name}', breed = '#{@breed}', age = #{@age}, colour = '#{@colour}',
                       description = '#{@description}' WHERE serial_num = #{@serial_num}") 
   end
   
