@@ -87,7 +87,7 @@ extend ClassModule
   # State changes:
   # NA?
   #
-  #This method DOES work!!! :D
+  #Just added in the update ID field...This is still working.
   def self.update(options)
     @name = options["name"]
     @secondary_owner = options["secondary_owner"]
@@ -100,7 +100,7 @@ extend ClassModule
     @serial_num = options["serial_num"]
     @id = return_owner_id_by_serial_num(options)
     DATABASE.execute("UPDATE owners SET name = '#{@name}', secondary_owner = '#{@secondary_owner}', phone_num = #{@phone_num}, email = '#{@email}', 
-    address = '#{@address}', city = '#{@city}', state = '#{@state}', zip = #{@zip} WHERE id = #{@id}")
+    address = '#{@address}', city = '#{@city}', state = '#{@state}', zip = #{@zip}, id = #{@id} WHERE id = #{@id}")
   end
   
   
