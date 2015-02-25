@@ -2,7 +2,7 @@
 get "/delete_pet_info" do
   @title = "Delete Pet Info"
   @header = "FINDO"
-  erb :delete_pet_info
+  erb :"delete_pet_info/delete_pet_info"
 end
 
 
@@ -12,7 +12,7 @@ get "/delete_pet_hesitate" do
   @header = "FINDO"
   @serial_num = params["serial_num"] # "/delete_pet_confirm" will not work without this parameter...
   @array = Dog.find_by_serial_num(params)
-  erb :delete_pet_hesitate
+  erb :"delete_pet_info/delete_pet_hesitate"
 end
 
 
@@ -24,5 +24,5 @@ get "/delete_pet_confirm" do
   @id = Dog.find_id_by_serial_num(params)
   @d = Dog.delete_record({"table"=>"dogs", "id"=>@id})
   # If I were to make a new dog object here...it would only have the id...
-  erb :confirm
+  erb :"main_pages/confirm"
 end

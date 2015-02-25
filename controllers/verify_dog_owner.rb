@@ -2,7 +2,7 @@
 get "/verify_new_user_and_dog" do
   @title = "Verification"
   @header = "Verification"
-  erb :verify_new_user_and_dog
+  erb :"verify_dog_owner/verify_new_user_and_dog"
 end
 
 get "/verify_new_user_and_dog_confirm" do
@@ -12,5 +12,5 @@ get "/verify_new_user_and_dog_confirm" do
   id = Dog.find_id_by_serial_num(params) #should give me id the for the dog.
   owner_id = Owner.return_owner_id_by_phone_num(params)
   Dog.update_owner_id({"owner_id"=>owner_id, "id"=>id}) # not sure if I can put params there and have that workout...
-  erb :confirm
+  erb :"main/pages/confirm"
 end

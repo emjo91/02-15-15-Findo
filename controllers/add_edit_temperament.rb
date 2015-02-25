@@ -2,7 +2,7 @@
 get "/add_temperament" do
   @title = "Temperament"
   @header = "FINDO"
-  erb :add_temperament
+  erb :"add_edit_temperament/add_temperament"
 end
   
 get "/add_temperament_confirm" do
@@ -13,5 +13,5 @@ get "/add_temperament_confirm" do
   temperament_id = Temperament.temperament_id(params)
   id = Dog.find_id_by_serial_num(params) #should give me the for the dog.
   Dog.update_temperament_id({"temperament_id"=>temperament_id, "id"=>id})
-  erb :add_temperament_confirm
+  erb :"add_edit_temperament/add_temperament_confirm"
 end

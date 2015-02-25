@@ -2,7 +2,7 @@
 get "/" do
   @title = "Findo"
   @header = "FINDO"
-  erb :index
+  erb :"main_pages/index"
 end
 
 
@@ -10,7 +10,7 @@ end
 get "/coming_soon" do
   @title = "Sorry!"
   @header = "FINDO"
-  erb :coming_soon
+  erb :"main_pages/coming_soon"
 end
 
 
@@ -18,5 +18,5 @@ end
 get "/existing_user" do
   @title = "Edit"
   @header = "FINDO"
-  erb :existing_user
+  erb :"main_pages/existing_user"
 end

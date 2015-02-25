@@ -4,7 +4,7 @@
 get "/new_user_dog" do
   @title = "Add a Pet"
   @header = "FINDO"
-  erb :new_user_dog
+  erb :"new_dog/new_user_dog"
 end
 
 # Goes to verify_new_user_and_dog
@@ -24,5 +24,5 @@ get "/new_info_confirmed" do
   @d = Dog.new(params)
   # @id = Dog.find_id_by_serial_num(params[:id]) # not sure if this will work.
   binding.pry
-  erb :new_info_confirmed
+  erb :"new_dog/new_info_confirmed"
 end

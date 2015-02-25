@@ -3,7 +3,7 @@
 get "/edit_owner_info" do
   @title = "View Owner Info"
   @header = "FINDO"
-  erb :edit_owner_info
+  erb :"edit_owner_info/edit_owner_info"
 end
 
 
@@ -16,7 +16,7 @@ get "/edit_owner_form" do
   @serial_num = params["serial_num"] # "/edit_owner_confirm" will not work without this...unsure of why...
   @id = Owner.return_owner_id_by_serial_num(params) 
   @array = Owner.return_owner_info_by_serial_num(params)
-  erb :edit_owner_form
+  erb :"edit_owner_info/edit_owner_form"
 end
 
 
@@ -28,5 +28,5 @@ get "/edit_owner_confirm/:id" do
   Owner.update(params)
   @o = Owner.new(params)
   @id = (params[:id]) 
-  erb :edit_owner_confirm
+  erb :"edit_owner_info/edit_owner_confirm"
 end
