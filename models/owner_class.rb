@@ -52,7 +52,7 @@ extend ClassModule
   # No Parameters               
   #
   # Returns:
-  # id
+  # an integer which is the id number of the owner.
   #
   # State changes:
   # NA?
@@ -85,9 +85,9 @@ extend ClassModule
   # Empty Array
   #
   # State changes:
-  # NA?
+  # Updates data in the database.
   #
-  #Just added in the update ID field...This is still working.
+  # Just added in the update ID field...This is still working.
   def self.update(options)
     @name = options["name"]
     @secondary_owner = options["secondary_owner"]
@@ -134,7 +134,7 @@ extend ClassModule
   # No Parameters               
   #
   # Returns:
-  # Returns an owner object
+  # Returns an Owner object, with owner's info.
   #
   # State changes:
   # NA?
@@ -153,9 +153,9 @@ extend ClassModule
   # No Parameters               
   #
   # Returns:
-  # An array of hashes, with "delete_secondary_kvpairs" it gets rid of 
+  # An Array of Hashes, with "delete_secondary_kvpairs" it gets rid of 
   # hashes with key values of integers. With "array[0]" it takes the
-  # remaining hashes out of the array.
+  # remaining hashes out of the Array.
   #
   # State changes:
   # NA?
@@ -223,7 +223,7 @@ extend ClassModule
   # serial_num               
   #
   # Returns:
-  # An array of hashes.
+  # An Array of Hashes.
   #
   # State changes:
   # NA?
@@ -245,7 +245,7 @@ extend ClassModule
   # serial_num               
   #
   # Returns:
-  # An array of hashes.
+  # An Array of Hashes.
   #
   # State changes:
   # NA?
@@ -284,4 +284,4 @@ extend ClassModule
   end
   
   
-end
+end #end class

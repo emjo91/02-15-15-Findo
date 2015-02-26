@@ -7,12 +7,20 @@
   
   <body>
     <div id="page-wrap">
-      <h1><%= @header %></h1>
+      <header>
+        <h1><%= @header %></h1>
+      </header>
       <%= yield%>
       <br>
-      <center><nav class="footer_nav"><a href="/">Home</a> - 
-      <a href="/coming_soon">About the Company</a> - 
-      <a href="/coming_soon">Statistics</a></nav></center>
+      <footer>
+        <center>
+          <nav class="footer_nav">
+            <a href="/">Home</a> - 
+            <a href="/coming_soon">About the Company</a> - 
+            <a href="/coming_soon">Statistics</a>
+          </nav>
+        </center>
+      </footer>
     </div> <!-- end page-wrap-->
   </body>
 </html>
