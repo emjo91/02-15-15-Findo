@@ -1,8 +1,7 @@
-<!-- Working to get rid of this ERB -->
-<!-- This can be deleted -->
+<!-- This is the owner ID page...a redirect instead of the confirm page... kinda like an owner profile. -->
 
 <center>
-  <h3>Does this info look correct?</h3>
+  <h3><%= @o.name %>'s Profile</h3>
   
   <p>Owner Name: <%= @o.name %></p>
   <p>Secondary Owner: <%= @o.secondary_owner %></p>
@@ -11,7 +10,7 @@
   <p>Address: <%= @o.address %></p>
   <p>City: <%= @o.city %></p>
   <p>State: <%= @o.state %></p>
-  <p>Zip Code: <%= @o.zip %></p>
+  <p>Zip Code: <%= @o.zip %></p>  
   
   <br><br>
   <nav>

@@ -20,13 +20,26 @@ get "/edit_owner_form" do
 end
 
 
-# I'm not sure why this isn't working. Should work. Coming up with
-# the same error when I had to wait it out...
-get "/edit_owner_confirm/:id" do
+# This method IS INFACT working!!! :D omg!
+post "/edit_owner_confirm/:id" do
   @title = "Edit Owner"
   @header = "FINDO"
   Owner.update(params)
   @o = Owner.new(params)
   @id = (params[:id]) 
-  erb :"edit_owner_info/edit_owner_confirm"
+  redirect "/owner/#{@o.id}"
+  # erb :"edit_owner_info/edit_owner_confirm"
 end
+
+
+# This is the new confirmation page...which is the owner profile.
+
+get "/owner/:id" do
+  @title = "Owner Profile"
+  @header = "FINDO"
+  binding.pry
+  @o = Owner.find_by_id(params[:id])
+  erb :owner
+end
+
+

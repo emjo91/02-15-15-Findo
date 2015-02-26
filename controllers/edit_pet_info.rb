@@ -3,7 +3,7 @@
 get "/edit_pet_info" do
   @title = "Edit Pet Info"
   @header = "FINDO"
-  erb :"edit_pet_info/edit_pet_info"
+  erb :"edit_pet/edit_pet_info"
 end
 
 # Working
@@ -14,7 +14,7 @@ get "/edit_pet_form" do
   # Show the current info on this page.
   @serial_num = params["serial_num"] # Not sure that I can get rid of this? /edit_pet_cofnrim wasn't working without it? Unsure as to why.
   @array = Dog.find_by_serial_num(params)
-  erb :"edit_pet_info/edit_pet_form"
+  erb :"edit_pet/edit_pet_form"
 end
 
 # This IS working.
@@ -24,5 +24,5 @@ get "/edit_pet_confirm" do
   @header = "FINDO"
   @d = Dog.update(params)
   @d = Dog.new(params) # May need to add more to this object to ensure it displays everything correctly.
-  erb :"edit_pet_info/edit_pet_confirm"
+  erb :"edit_pet/edit_pet_confirm"
 end

@@ -127,6 +127,25 @@ extend ClassModule
   end
   
   
+  # Public: #find_by_id
+  # Allows a search by a phone number for the user's information.
+  #
+  # Parameters:
+  # No Parameters               
+  #
+  # Returns:
+  # Returns an owner object
+  #
+  # State changes:
+  # NA?
+  #
+  # This method IS working.
+  def self.find_by_id(id)
+    result = DATABASE.execute("SELECT * FROM owners WHERE id = #{id}")[0]
+    self.new(result) 
+  end
+  
+  
   # Public: #show_all_owners
   # Shows all the names of the owners in the database.
   #
