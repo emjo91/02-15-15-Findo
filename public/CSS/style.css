@@ -4,8 +4,9 @@
   color: #ffffff;
 }
 
+/* Not sure if I can have this and still have responsive design...we shall see */
 #page-wrap {
-  width: 500px;
+  max-width: 500px;
 }
 
 #float-right {

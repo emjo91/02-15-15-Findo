@@ -12,7 +12,7 @@ end
 get "/display_pet_info" do 
   @title = "View Pet Info"
   @header = "FINDO"
-  @array = Dog.find_by_serial_num(params)
-  @array2 = Temperament.return_dog_temperament_by_serial_num(params)
-  erb :"check_pet_info/display_pet_info"
+  @id = Dog.find_id_by_serial_num(params)
+  redirect "/dog/#{@id}"
+  # erb :"check_pet_info/display_pet_info"
 end

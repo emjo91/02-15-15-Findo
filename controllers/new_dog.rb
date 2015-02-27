@@ -14,15 +14,12 @@ end
 # If the code is suddenly not running...you may need to assign an @variable for temperament_id and owner_id...just sayin.
 
 # I wasn't able to get named parameters for this path...Idk if it's because it's a brand new user??
-get "/new_info_confirmed" do
+post "/new_info_confirmed" do
   @title = "Confirmed"
   @header = "FINDO"
   @d = Dog.new(params)
-  @d.temperament_id = 1 # Unable to get rid of these...for now.
-  @d.owner_id = 1 # Unable to get rid of these...for now.
+  @d.temperament_id = 1 #temporary ID
+  @d.owner_id = 1 #temporary ID
   @d.insert
-  @d = Dog.new(params)
-  # @id = Dog.find_id_by_serial_num(params[:id]) # not sure if this will work.
-  binding.pry
   erb :"new_dog/new_info_confirmed"
 end

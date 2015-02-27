@@ -32,12 +32,11 @@ post "/edit_owner_confirm/:id" do
 end
 
 
-# This is the new confirmation page...which is the owner profile.
+# This is the new confirmation page...which is the owner profile. Maybe put it in a different rb file???
 
 get "/owner/:id" do
   @title = "Owner Profile"
   @header = "FINDO"
-  binding.pry
   @o = Owner.find_by_id(params[:id])
   erb :owner
 end

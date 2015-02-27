@@ -1,5 +1,5 @@
 <div id="float-left">
-  <form action="edit_pet_confirm">
+    <form action="edit_pet_confirm">
   
     <!-- This is the serial number from the previous page... -->
     <input type="hidden" name="serial_num" 
@@ -19,13 +19,21 @@
   
     <p>Description:</p>
     <input type="text" name="description">
+    
+    <!-- Passing along id's below here -->
+    <input type="hidden" name="id" value="<%= @id %>">
+    
+    <input type="hidden" name="owner_id" value="<%= @owner_id %>">
+    
+    <input type="hidden" name="temperament_id" value="<%= @temperament_id %>">
 
     <br><br>
     <input type="submit" value="Submit">
 
   </form>
   <br>
-</div><!-- end right-float -->
+</div><!-- end left-float -->
+
 
 <div id="float-right">
   <p>Current Information:</p>

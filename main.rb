@@ -24,5 +24,7 @@ require_relative 'controllers/edit_owner_info.rb'
 require_relative 'controllers/delete_pet_info.rb'
 require_relative 'controllers/add_edit_temperament.rb'
 require_relative 'controllers/main_pages.rb'
+require_relative 'controllers/verify_dog_owner.rb'
+
 
 # views

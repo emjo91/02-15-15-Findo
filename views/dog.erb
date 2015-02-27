@@ -1,0 +1,19 @@
+<!-- This is the dog ID page...a redirect instead of the confirm page... kinda like an owner profile. -->
+
+<center>
+  <h3><%= @d.name %>'s Profile</h3>
+  
+  <p>Dog Name: <%= @d.name %></p>
+  <p>Breed: <%= @d.breed %></p>
+  <p>Age: <%= @d.age %></p>
+  <p>Colour: <%= @d.colour %></p>
+  <p>Description: <%= @d.description %></p>
+  <p>Temperament: Will be added soon </p>
+  
+  <br><br>
+  <nav>
+    <a href="/edit_owner_info">Add Pet</a> - 
+    <a href="/edit_pet_info">Edit Pet</a> - 
+    <a href="/verify_new_user_and_dog">Add Temperament</a> 
+  </nav>
+</center>

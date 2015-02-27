@@ -9,10 +9,7 @@ end
 # Goes to add a dog/pet...whatever.
 # For some reason, not able to pass along the owner ID more than one page...
 post "/new_user_confirmed" do
-  @title = "Sign Up"
-  @header = "Confirmation"
   @o = Owner.new(params)
   @o.insert
   redirect "/owner/#{@o.id}"
-  erb :"new_user_setup/new_user_confirmed"
 end

@@ -81,6 +81,7 @@ class Dog
   # NA?
   #
   # This method DOES work.
+  # Edited this method so that it also updated the id, owner_id, and temperament_id.
   def self.update(options)
     @serial_num = options["serial_num"] #finds the dog's record.
     @name = options["name"]
@@ -88,8 +89,28 @@ class Dog
     @age = options["age"]
     @colour = options["colour"]
     @description = options["description"]
-    DATABASE.execute("UPDATE dogs SET name = '#{@name}', breed = '#{@breed}', age = #{@age}, colour = '#{@colour}',
+    DATABASE.execute("UPDATE dogs SET id = #{@id}, name = '#{@name}', breed = '#{@breed}', age = #{@age}, colour = '#{@colour}',
                       description = '#{@description}' WHERE serial_num = #{@serial_num}") 
+  end
+  
+  
+  # Public: #find_by_id
+  # Allows a search by a phone number for the user's information.
+  #
+  # Parameters:
+  # No Parameters               
+  #
+  # Returns:
+  # Returns a Dog object, with owner's info.
+  #
+  # State changes:
+  # NA?
+  #
+  # This method IS working.
+  # This could probably be moved into a module at some point...but for now here it is.
+  def self.find_by_id(id)
+    result = DATABASE.execute("SELECT * FROM dogs WHERE id = #{id}")[0]
+    self.new(result) 
   end
   
   
@@ -141,13 +162,28 @@ class Dog
   # serial_num - serial number of the record wanted.
   #             
   # Returns:
-  # An array of hashes, with "delete_secondary_kvpairs" it gets rid of 
-  # hashes with key values of integers. With "array[0]" it takes the
-  # remaining hashes out of the array.
+  # This returns an object.
   #
-  # Working. NOTE - was working without referring to self? idk...seems
-  # to need self now...idk.
+  # Working. 
   def self.find_by_serial_num(options)
+    serial_num = options["serial_num"]
+    result = DATABASE.execute("SELECT name, breed, age, colour, description, serial_num, id, owner_id, 
+                              temperament_id FROM dogs WHERE serial_num = #{serial_num}")[0]
+    self.new(result)
+  end
+  
+  
+  # Public: #find_by_serial_num_iterate
+  # Pulls a record from a table by it's serial number.
+  #
+  # Parameters (will update with OPTIONS HASH):
+  # serial_num - serial number of the record wanted.
+  #             
+  # Returns:
+  # This returns an Array of Hashes
+  #
+  # Working. 
+  def self.find_by_serial_num_iterate(options)
     serial_num = options["serial_num"]
     array = DATABASE.execute("SELECT name, breed, age, colour, description FROM dogs WHERE serial_num = #{serial_num}")
     delete_secondary_kvpairs(array, :placeholder)
@@ -201,5 +237,57 @@ class Dog
     end
     return @id 
   end
+  
+  
+  # Public: #self.find_owner_id_by_serial_num
+  # Grabs the record owner_id based off of a serial number given by the user.
+  #
+  # Parameters:
+  # serial_num              
+  #
+  # Returns:
+  # An Integer, specifially the record id.
+  #
+  # State changes:
+  # NA?
+  #
+  # THIS IS WORKING!
+  # Maybe refactor this if possible? It's getting a bit long...
+  # Seems to be working...not sure why it wasn't just one time...
+  def self.find_owner_id_by_serial_num(options)
+    serial_num = options["serial_num"]
+    array = DATABASE.execute("SELECT owner_id FROM dogs WHERE serial_num = #{serial_num}")
+    delete_secondary_kvpairs(array, :placeholder)
+    array[0].each do |x, id|
+      @id = id
+    end
+    return @id 
+  end
+  
+  
+  # Public: #self.find_temperament_id_by_serial_num
+  # Grabs the record owner_id based off of a serial number given by the user.
+  #
+  # Parameters:
+  # serial_num              
+  #
+  # Returns:
+  # An Integer, specifially the record id.
+  #
+  # State changes:
+  # NA?
+  #
+  # THIS IS WORKING!
+  # Maybe refactor this if possible? It's getting a bit long...
+  # Seems to be working...not sure why it wasn't just one time...
+  def self.find_temperament_id_by_serial_num(options)
+    serial_num = options["serial_num"]
+    array = DATABASE.execute("SELECT temperament_id FROM dogs WHERE serial_num = #{serial_num}")
+    delete_secondary_kvpairs(array, :placeholder)
+    array[0].each do |x, id|
+      @id = id
+    end
+    return @id 
+  end
     
-end
+end #class end

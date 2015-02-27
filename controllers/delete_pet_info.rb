@@ -11,7 +11,7 @@ get "/delete_pet_hesitate" do
   @title = "Delete Pet Info"
   @header = "FINDO"
   @serial_num = params["serial_num"] # "/delete_pet_confirm" will not work without this parameter...
-  @array = Dog.find_by_serial_num(params)
+  @array = Dog.find_by_serial_num_iterate(params)
   erb :"delete_pet_info/delete_pet_hesitate"
 end
 
@@ -24,5 +24,6 @@ get "/delete_pet_confirm" do
   @id = Dog.find_id_by_serial_num(params)
   @d = Dog.delete_record({"table"=>"dogs", "id"=>@id})
   # If I were to make a new dog object here...it would only have the id...
-  erb :"main_pages/confirm"
+  redirect "/"
+  # erb :"main_pages/confirm"
 end
