@@ -1,83 +1,115 @@
+/* Style for Front page */
+
 * {
-  margin: 0 auto;
-  background: #d23f3f;
-  color: #ffffff;
+  margin: 0;
+  padding: 0;
 }
 
-/* Not sure if I can have this and still have responsive design...we shall see */
-#page-wrap {
-  max-width: 500px;
+body {
+  margin: 0;
+  padding: 0;
+  background: #D94E4E;
 }
 
-#float-right {
-  float: right;
-  width: 300px;
+header {
+  width: 100%;
+  border-bottom: 4px dashed #ffffff;
 }
 
-#float-left {
+footer {
+  width: 100%;
+  border-top: 4px dashed #ffffff;
+}
+
+.facebook {
+  background: #F1F2D8;
+  width: 60px;
+  height: 40px;
+  border-top-left-radius:15px;
+  border-top-right-radius:15px;
+  display: block-inline;
   float: left;
-  width: 200px;
+  margin: 0 1px;
+  
+}
+
+.constrain {
+  height: 40px;
+  margin-left: 50px;
+}
+
+.content {
+  padding: 50px 0;
+}
+
+.content-constrain {
+  margin: 0 20px;
+  /*  max-width: 500px;*/  
 }
 
 h1 {
-  padding: 70px 0px 50px 0px;
-  margin: 0px 0px 20px 0px;
   font-family: "Arial Black";
-  text-align: center;
-  font-size: 72px;
-  border-bottom: 1px #ffffff solid;
   color: #ffffff;
+  font-size: 72px;
+  text-align: center;
+  margin: 8px 0;
 }
 
 h3 {
   font-family: "Arial";
-  font-size: 24px;
-  padding: 15px 0px 15px 0px
+  font-weight: normal;
+  color: #ffffff;
+  font-size: 32px;
+  padding: 0 0 10px 0;
 }
 
-/* Not sure if this is the font-size and line-height that I want, may need to re-adjust*/
 p {
   font-family: "Arial";
-  font-size: 18px;
-  line-height: 36px;
   color: #ffffff;
+  font-size: 16px;
+  line-height: 32px;
 }
 
-a {
-  font-family: "Arial";
-  font-color: #000000;
+ul{
+  margin: 0;
+  padding: 0;
+}
+
+li{
+  list-style: none;
+  background: #D94E4E;
+  text-align: center;
+  padding: 10px 0;
+}
+
+li a{
+  width: 100%;
+  display: block;
+  padding: 2px;
+  color: #ffffff;
+  font-family: "Arial Narrow";
   text-decoration: none;
+}
+
+li:hover {
+  background: #b84343;
+}
+
+/* Existing Users Nav */
+
+.users_li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.users_a {
   color: #ffffff;
-  }
-  a:hover{
-    font-color: #96b626;
-  }
-
-.footer_nav {
-  margin: 30px 0px 0px 0px;
-  padding: 10px 0px 50px 0px;
-  border-top: 1px #ffffff solid;
-  clear: both;
+  font-family: "Arial";
+  text-decoration: none;
+  font-size: 16px;
 }
 
-input {
-  background-color: #ffffff;
-  color: #000000;
-  margin: 5px 0px 5px 0px;
-}
-
-textarea {
-  background-color: #ffffff;
-  color: #000000;
-  margin: 5px 0px 5px 0px;
-}
-
-select {
-  background-color: #ffffff;
-  color: #000000;
-  margin: 5px 0px 5px 0px;
-}
-
-img {
-  border-radius: 15px;
+li.users_li:hover {
+  text-decoration: underline;
+  background: none;
 }

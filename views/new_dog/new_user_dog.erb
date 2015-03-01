@@ -2,25 +2,25 @@
 
 <form action="/new_info_confirmed" method="post">
   <p>Dog Name:</p>
-  <input type="text" name="name">
+  <input type="text" required autofocus name="name">
 
   <p>Breed:</p>
-  <input type="text" name="breed">
+  <input type="text" required name="breed">
   
   <p>Age:</p>
-  <input type="text" name="age">
+  <input type="text" required name="age">
 
   <p>Serial Number: <br> </p>
-  <input type="text" name="serial_num">  
+  <input type="text" required name="serial_num" placeholder="54321">  
   
   <p>Colour:</p>
-  <input type="text" name="colour"> 
+  <input type="text" required name="colour"> 
 
   <p>Description: <br> (List any illnesses, any 
   special notes worth knowing)</p>
-  <input type="text" name="description">
+  <input type="text" required name="description">
     
   <br><br>
-  <input type="submit" value="Submit">
+  <input type="submit" required value="Submit">
   
 </form>

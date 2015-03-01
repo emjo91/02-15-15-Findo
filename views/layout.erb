@@ -6,21 +6,24 @@
   </head>
   
   <body>
-    <div id="page-wrap">
-      <header>
-        <h1><%= @header %></h1>
-      </header>
-      <%= yield%>
-      <br>
-      <footer>
-        <center>
-          <nav class="footer_nav">
-            <a href="/">Home</a> - 
-            <a href="/coming_soon">About the Company</a> - 
-            <a href="/coming_soon">Statistics</a>
-          </nav>
-        </center>
-      </footer>
-    </div> <!-- end page-wrap-->
+    <header>
+      <h1><%= @header %></h1>
+    </header>
+    
+    <div class="content">
+      <div class="content-constrain">
+        <%= yield%>
+      </div> <!--End content-constrain -->
+    </div> <!--End content -->
+    
+    <footer>
+      <nav>
+        <ul>
+          <li><a href="/">HOME</li>
+          <li><a href="/coming_soon">ABOUT</li>
+          <li><a href="/coming_soon">STATS</li>
+        </ul>
+      </nav>
+    </footer>
   </body>
 </html>

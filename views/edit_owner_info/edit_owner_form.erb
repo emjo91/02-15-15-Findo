@@ -2,38 +2,38 @@
   <form action="/edit_owner_confirm/<%= @id %>" method="post">
     <input type="hidden" name="serial_num" value="<%= @serial_num %>">
   
-    <p>Owner Name <br> (first and last):</p>
-    <input type="text" name="name">
+    <p>Owner Name:</p>
+    <input type="text" required autofocus name="name" placeholder="First and last">
 
-    <p>Secondary Owner Name:</p>
-    <input type="text" name="secondary_owner">
+    <p>Secondary Owner:</p>
+    <input type="text" required name="secondary_owner">
 
-    <p>Phone Number <br> (ex. 4025551234):</p>
-    <input type="text" name="phone_num">  
+    <p>Phone Number:</p>
+    <input type="tel" required name="phone_num" placeholder="4025551234">  
   
-    <p>Email Adress <br> (ex. findo@gmail.com):</p>
-    <input type="text" name="email">  
+    <p>Email Adress:</p>
+    <input type="email" required name="email" placeholder="findo@gmail.com">  
 
     <p>Address:</p>
-    <input type="text" name="address">
+    <input type="text" required name="address">
   
     <p>City:</p>
-    <input type="text" name="city">
+    <input type="text" required name="city">
   
     <p>State:</p>
-    <input type="text" name="state">
+    <input type="text" required maxlength=2 name="state" placeholder="NE">
   
     <p>Zip Code:</p>
-    <input type="text" name="zip">
+    <input type="text" required name="zip">
 
     <br><br>
     <input type="submit" value="Submit">
   </form>
+  <br><br>
 </div><!-- end float-left -->
 
 <div id="float-right">
-  <p>Current User Info:</p>
-  <br>
+  <p><strong>Current User Info:</strong></p>
   <% @array[0].each do |x, y| %>
     <p><%= "#{x.capitalize}: #{y}" %></p>
   <% end %>

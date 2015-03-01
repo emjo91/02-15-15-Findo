@@ -6,19 +6,19 @@
     value="<%= @serial_num %>">
   
     <p>Name:</p>
-    <input type="text" name="name">
+    <input type="text" required autofocus name="name">
   
     <p>Breed:</p>
-    <input type="text" name="breed">
+    <input type="text" required name="breed">
   
     <p>Age:</p>
-    <input type="text" name="age">
+    <input type="text" required name="age">
   
     <p>Colour:</p>
-    <input type="text" name="colour">
+    <input type="text" required name="colour">
   
     <p>Description:</p>
-    <input type="text" name="description">
+    <input type="text" required name="description">
     
     <!-- Passing along id's below here -->
     <input type="hidden" name="id" value="<%= @id %>">
