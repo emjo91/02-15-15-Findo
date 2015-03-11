@@ -1,3 +1,12 @@
+<div id="float-right">
+  <p>Current Information:</p>
+  <br>
+  <% @array[0].each do |x, y| %>
+    <p><%= "#{x.capitalize}: #{y}" %></p>
+  <% end %>
+  <br><br>
+</div><!-- end float-right -->
+
 <div id="float-left">
     <form action="edit_pet_confirm">
   
@@ -33,13 +42,3 @@
   </form>
   <br>
 </div><!-- end left-float -->
-
-
-<div id="float-right">
-  <p>Current Information:</p>
-  <br>
-  <% @array[0].each do |x, y| %>
-    <p><%= "#{x.capitalize}: #{y}" %></p>
-  <% end %>
-  <br><br>
-</div><!-- end float-right -->

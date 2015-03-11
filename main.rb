@@ -1,3 +1,8 @@
+require 'gemfile'
+require 'bundler/setup'
+
+# require 'sinatra/activerecord'
+
 require 'sinatra'
 require 'pry'
 require 'sqlite3'

@@ -13,14 +13,14 @@ end
 get "/edit_owner_form" do
   @title = "Edit Owner"
   @header = "FINDO"
-  @serial_num = params["serial_num"] # "/edit_owner_confirm" will not work without this...unsure of why...
+  @serial_num = params["serial_num"] 
   @id = Owner.return_owner_id_by_serial_num(params) 
   @array = Owner.return_owner_info_by_serial_num(params)
   erb :"edit_owner_info/edit_owner_form"
 end
 
 
-# This method IS INFACT working!!! :D omg!
+# This method IS INFACT working!!! 
 post "/edit_owner_confirm/:id" do
   @title = "Edit Owner"
   @header = "FINDO"
@@ -28,11 +28,7 @@ post "/edit_owner_confirm/:id" do
   @o = Owner.new(params)
   @id = (params[:id]) 
   redirect "/owner/#{@o.id}"
-  # erb :"edit_owner_info/edit_owner_confirm"
 end
-
-
-# This is the new confirmation page...which is the owner profile. Maybe put it in a different rb file???
 
 get "/owner/:id" do
   @title = "Owner Profile"
